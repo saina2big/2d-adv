@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log(move);
 
  
-        Vector2 position = (Vector2)transform.position + move * 0.3f;
+        Vector2 position = (Vector2)transform.position + move * 0.3f * Time.deltaTime;
 
         transform.position = position;
         
