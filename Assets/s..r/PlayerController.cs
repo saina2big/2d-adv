@@ -6,10 +6,13 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public InputAction moveAction;
+    public int maxHealth = 5;
+    int currentHealth;
     // Start is called before the first frame update
     void Start()
     {
       moveAction.Enable();
+      currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -24,4 +27,12 @@ public class PlayerController : MonoBehaviour
         transform.position = position;
         
     }
+
+    void ChangeHealth (int amount)
+    {    
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log(currentHealth + "/" + maxHealth);
+
+    }
+   
 }
